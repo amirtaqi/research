@@ -301,3 +301,10 @@ a:focus-visible {
     position: static;
   }
 }
+
+/* Extra-small screens: force single-column grid */
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
