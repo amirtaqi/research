@@ -2,14 +2,330 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Amir Taqieddin – Materials Informatics & Electrochemical Systems</title>
-  <meta name="description" content="Academic website for Amir Taqieddin, PhD: materials informatics scientist at Solid Power, specializing in electrochemical systems, CO2 sequestration, water treatment, and 2D materials." />
-  
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" type="image/png" href="favicon.png" />
-</head>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Academic website for Amir Taqieddin, PhD: materials informatics scientist at Solid Power with expertise in electrochemical systems, water treatment, CO2 sequestration, nanofluidics, and 2D materials." />
+  <style>
+/* Base styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.6;
+  color: #111827;
+  background: #f9fafb;
+}
+
+/* Layout helpers */
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+/* Header & navigation */
+.site-header {
+  background: #111827;
+  color: #f9fafb;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.branding .name {
+  font-size: 1.5rem;
+  margin: 0 0 0.2rem;
+}
+
+.branding .tagline {
+  margin: 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.branding .affiliation {
+  margin: 0.2rem 0 0;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.site-nav {
+  position: relative;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 0.9rem;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  color: #e5e7eb;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.nav-links a:hover,
+.nav-links a:focus-visible {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Mobile nav toggle */
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid #4b5563;
+  border-radius: 0.375rem;
+  color: #e5e7eb;
+  font-size: 1.1rem;
+  padding: 0.2rem 0.6rem;
+  cursor: pointer;
+}
+
+/* Sections */
+.section {
+  padding: 3.5rem 0;
+  background: #f9fafb;
+}
+
+.section-alt {
+  background: #ffffff;
+}
+
+.section h2 {
+  font-size: 1.6rem;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 0.4rem;
+}
+
+.section-intro {
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  color: #4b5563;
+}
+
+/* Layout variations */
+.two-column {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 2rem;
+  align-items: flex-start;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Cards */
+.card,
+.highlight-card {
+  background: #ffffff;
+  border-radius: 0.75rem;
+  padding: 1.3rem 1.4rem;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+}
+
+.highlight-card {
+  background: #f3f4f6;
+}
+
+/* Publications */
+.pub-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.pub-item {
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.pub-item:last-child {
+  border-bottom: none;
+}
+
+.pub-authors {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.pub-title {
+  margin: 0.2rem 0;
+}
+
+.pub-venue {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+.pub-links a {
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #1d4ed8;
+}
+
+.pub-links a:hover,
+.pub-links a:focus-visible {
+  text-decoration: underline;
+}
+
+.pub-note {
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
+/* Buttons & links */
+a {
+  color: #1f2933;
+}
+
+a:hover,
+a:focus-visible {
+  color: #111827;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.55rem 1.2rem;
+  border-radius: 999px;
+  background: #111827;
+  color: #f9fafb;
+  text-decoration: none;
+  font-size: 0.95rem;
+  border: 1px solid transparent;
+}
+
+.button:hover,
+.button:focus-visible {
+  background: #1f2937;
+}
+
+/* Lists */
+.plain-list {
+  list-style: disc;
+  padding-left: 1.2rem;
+}
+
+.plain-list li + li {
+  margin-top: 0.4rem;
+}
+
+/* Profile photo (optional) */
+.profile-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 999px;
+  object-fit: cover;
+  display: block;
+  margin-bottom: 1rem;
+}
+
+/* Small note text */
+.small-note {
+  font-size: 0.85rem;
+  color: #4b5563;
+}
+
+/* Footer */
+.site-footer {
+  background: #111827;
+  color: #9ca3af;
+  padding: 1.5rem 0;
+  font-size: 0.9rem;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.footer-note {
+  margin: 0;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .two-column {
+    grid-template-columns: 1fr;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .nav-toggle {
+    display: inline-block;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: #111827;
+    position: absolute;
+    top: 2.4rem;
+    right: 0;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #4b5563;
+    min-width: 150px;
+  }
+
+  .nav-links.nav-open {
+    display: flex;
+  }
+
+  .site-header {
+    position: static;
+  }
+}
+
+@media (max-width: 480px) {
+  .branding .name {
+    font-size: 1.3rem;
+  }
+  
+  .branding .tagline,
+  .branding .affiliation {
+    font-size: 0.85rem;
+  }
+}
+  </style>
+</head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
@@ -21,8 +337,8 @@
         </p>
       </div>
 
-      <nav class="site-nav" aria-label="Main Navigation">
-        <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+      <nav class="site-nav">
+        <button class="nav-toggle" aria-label="Toggle navigation">
           ☰
         </button>
         <ul class="nav-links">
@@ -30,7 +346,7 @@
           <li><a href="#research">Research</a></li>
           <li><a href="#publications">Publications</a></li>
           <li><a href="#teaching">Teaching</a></li>
-          <li><a href="#cv">Documents</a></li>
+          <li><a href="#cv">CV</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
@@ -38,7 +354,6 @@
   </header>
 
   <main>
-
     <!-- ABOUT -->
     <section id="about" class="section">
       <div class="container two-column">
@@ -46,24 +361,27 @@
           <h2>About</h2>
           <p>
             I am a <strong>Materials Informatics Scientist at Solid Power Operating Inc.</strong>, where I work at the intersection of
-            data-driven modeling, multiscale simulation, and battery materials design. My focus is on applying
-            computational materials science and informatics to accelerate the development of <strong>next-generation energy storage technologies</strong>.
+            data-driven modeling, multiscale simulation, and battery materials design. My current focus is on applying
+            computational materials science and informatics to accelerate the development and deployment of
+            <strong>next-generation energy storage technologies</strong>.
           </p>
           <p>
             I received my <strong>PhD in Mechanical &amp; Industrial Engineering</strong> from Northeastern University, where my dissertation
-            developed <strong>multiscale computational frameworks</strong> for carbon- and iron-based materials used in electrochemical
-            water treatment and carbon capture. I previously worked on <strong>nanofluidics, interfacial transport, and 2D materials</strong> at the University of Illinois at Urbana–Champaign, including graphene biosensors and transport in nanoscale channels.
+            developed <strong>multiscale computational frameworks</strong> to design carbon- and iron-based materials for electrochemical
+            water treatment and carbon capture applications. Earlier in my career, I worked on <strong>nanofluidics, interfacial
+            transport, and 2D materials</strong> at the University of Illinois at Urbana–Champaign, including graphene-based
+            biosensors and transport in nanoscale channels.
           </p>
           <p>
-            My research spans <strong>electrochemical systems, materials informatics, CO<sub>2</sub> sequestration, nanofluidics, and 2D materials</strong>. I am currently seeking a <strong>faculty position</strong> in mechanical engineering, materials science, or related fields.
+            Broadly, my research spans <strong>electrochemical systems, materials informatics, water and environmental remediation,
+            CO<sub>2</sub> sequestration, nanofluidics, and 2D materials</strong>. I am currently on the academic job market and
+            seeking a <strong>faculty position</strong> in mechanical engineering, materials science, chemical/environmental engineering,
+            or related fields.
           </p>
         </div>
 
-        <aside class="highlight-card" aria-labelledby="current-position">
-          <!-- Optional profile image 
-          <img src="profile.jpg" alt="Portrait of Amir Taqieddin" class="profile-photo" />
-          -->
-          <h3 id="current-position">Current Position</h3>
+        <aside class="highlight-card">
+          <h3>Current Position</h3>
           <p>
             <strong>Materials Informatics Scientist</strong><br />
             Solid Power Operating Inc., Boulder, CO
@@ -72,15 +390,15 @@
           <h3>Research Areas</h3>
           <ul>
             <li>Electrochemical water treatment &amp; ROS materials</li>
-            <li>Carbon/iron materials for CO<sub>2</sub> capture</li>
+            <li>Carbon/iron materials for CO<sub>2</sub> capture and ocean alkalinity</li>
             <li>Materials informatics &amp; multiscale simulations</li>
-            <li>Nanofluidics &amp; 2D materials</li>
+            <li>Nanofluidics, 2D materials &amp; biosensors</li>
           </ul>
 
           <h3>Education</h3>
           <ul>
             <li>PhD, Mechanical &amp; Industrial Engineering, Northeastern University</li>
-            <li>Research experience at UIUC</li>
+            <li>Research experience at University of Illinois at Urbana–Champaign</li>
           </ul>
         </aside>
       </div>
@@ -91,52 +409,62 @@
       <div class="container">
         <h2>Research</h2>
         <p>
-          My research combines <strong>computational materials science</strong>, atomistic and continuum simulations, and <strong>data-driven modeling</strong> to engineer electrochemical systems for water treatment, CO<sub>2</sub> sequestration, and energy storage. 
-          A recurring theme is connecting molecular-scale phenomena to system-level performance.
+          My research combines <strong>computational materials science, atomistic and continuum simulations, and data-driven
+          modeling</strong> to engineer electrochemical systems for water treatment, CO<sub>2</sub> sequestration, and energy storage.
+          A recurring theme in my work is connecting <strong>molecular-scale phenomena</strong> to <strong>device- and system-level
+          performance</strong>.
         </p>
 
         <div class="grid">
           <article class="card">
             <h3>Electrochemical Water Treatment &amp; ROS Generation</h3>
             <p>
-              I develop frameworks to design <strong>granular activated carbon (GAC)</strong> and other electrodes that generate reactive oxidative species for water remediation.
+              I develop models and frameworks to design <strong>granular activated carbon (GAC)</strong> and other electrodes that
+              efficiently generate reactive oxidative species (ROS) for water remediation. This includes multiscale
+              modeling of structure–porosity relationships, transport, and electrochemical kinetics in flow-through
+              reactors.
             </p>
             <ul>
-              <li>Multiscale modeling of GAC electrodes</li>
-              <li>Design for in situ H<sub>2</sub>O<sub>2</sub> and ·OH generation</li>
+              <li>Multiscale modeling of GAC electrodes and water adsorption</li>
+              <li>Design of materials for in situ H<sub>2</sub>O<sub>2</sub> and ·OH generation</li>
             </ul>
           </article>
 
           <article class="card">
             <h3>CO<sub>2</sub> Sequestration &amp; Ocean Electrochemistry</h3>
             <p>
-              I explore electrochemical systems coupling <strong>iron chemistry, alkalinity, and carbon capture</strong> for large-scale CO<sub>2</sub> sequestration.
+              I work on electrochemical strategies that couple <strong>iron chemistry, alkalinity enhancement, and carbon
+              capture</strong>, including ocean iron fertilization concepts. My work explores how engineered materials and
+              electrochemical processes can support large-scale, durable CO<sub>2</sub> sequestration.
             </p>
             <ul>
-              <li>Electrochemical iron fertilization and alkalinity enhancement</li>
-              <li>Iron-based CO<sub>2</sub> removal systems</li>
+              <li>Electrochemical ocean iron fertilization and alkalinity enhancement</li>
+              <li>Iron-based electrochemical systems for CO<sub>2</sub> removal</li>
             </ul>
           </article>
 
           <article class="card">
             <h3>Nanofluidics, 2D Materials &amp; Biosensing</h3>
             <p>
-              Earlier work focused on <strong>transport in nanoscale channels and 2D heterostructures</strong> such as graphene-based biosensors.
+              Earlier work focused on <strong>transport in nanoscale channels and 2D heterostructures</strong>, including strongly
+              coupled electroosmotic flows and high-sensitivity biosensors based on deformed graphene and MoS<sub>2</sub>
+              heterostructures.
             </p>
             <ul>
-              <li>Electroosmotic coupling in nanofluidic channels</li>
-              <li>Graphene biosensors for nucleic acid detection</li>
+              <li>Electroosmotic coupling in nanoscale channels</li>
+              <li>Graphene-based field-effect biosensors for nucleic acids</li>
             </ul>
           </article>
 
           <article class="card">
             <h3>Materials Informatics &amp; Solid-State Batteries</h3>
             <p>
-              At Solid Power, I apply <strong>AI and informatics tools</strong> to predict material and cell-level performance in solid-state batteries.
+              At Solid Power, I apply <strong>AI and informatics tools</strong> to solid-state battery materials and cells, bridging
+              laboratory testing and field applications for advanced energy storage.
             </p>
             <ul>
-              <li>Data-driven workflows for performance prediction</li>
-              <li>Integration of simulations and field data</li>
+              <li>Data-driven workflows for materials and cell performance prediction</li>
+              <li>Integration of experimental, simulation, and field data in battery development</li>
             </ul>
           </article>
         </div>
@@ -148,20 +476,124 @@
       <div class="container">
         <h2>Selected Publications</h2>
         <p class="section-intro">
-          Selected works across electrochemical systems, CO<sub>2</sub> sequestration, and materials informatics.
-          See <a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a> for a full list.
+          Below is a selection of publications spanning electrochemical water treatment, CO<sub>2</sub> sequestration,
+          nanofluidics, and 2D materials. For a complete and up-to-date list, see my
+          <a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank" rel="noopener">Google Scholar profile</a>.
         </p>
 
         <div class="pub-list">
-          <!-- Keep publications as-is -->
-          <!-- (no issues found; links already valid and consistent) -->
-          <!-- Consider adding <time> tags for years if you want machine-readable dates -->
+          <article class="pub-item">
+            <p class="pub-authors">
+              Amir Taqieddin, Stephanie Sarrouf, Muhammad Fahad Ehsan, Akram N. Alshawabkeh
+            </p>
+            <p class="pub-title">
+              <strong>
+                New Insights on Designing the Next-Generation Materials for Electrochemical Synthesis of Reactive Oxidative
+                Species Towards Efficient and Scalable Water Treatment: A Review and Perspectives
+              </strong>
+            </p>
+            <p class="pub-venue">
+              Journal of Environmental Chemical Engineering, 2023
+            </p>
+            <p class="pub-links">
+              <a href="https://pubmed.ncbi.nlm.nih.gov/38186676/" target="_blank" rel="noopener">Paper</a>
+              ·
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10769459/" target="_blank" rel="noopener">Open access</a>
+            </p>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              Amir Taqieddin, Stephanie Sarrouf, Muhammad Fahad Ehsan, Ken Buesseler, Akram N. Alshawabkeh, et al.
+            </p>
+            <p class="pub-title">
+              <strong>
+                Electrochemical Ocean Iron Fertilization and Alkalinity Enhancement Approach Toward CO<sub>2</sub> Sequestration
+              </strong>
+            </p>
+            <p class="pub-venue">
+              npj Ocean Sustainability, 2024
+            </p>
+            <p class="pub-links">
+              <a href="https://www.nature.com/articles/s44183-024-00064-8" target="_blank" rel="noopener">Paper</a>
+            </p>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              Amir Taqieddin
+            </p>
+            <p class="pub-title">
+              <strong>
+                Multiscale Insights into Structure–Porosity Interplay and Water Adsorption in Granular Activated Carbon for
+                Enhanced Electrochemical Water Treatment
+              </strong>
+            </p>
+            <p class="pub-venue">
+              ACS ES&amp;T Water, 2025
+            </p>
+            <p class="pub-links">
+              <a href="https://pubs.acs.org/doi/10.1021/acsestwater.5c00247" target="_blank" rel="noopener">Paper</a>
+            </p>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              Maria del Mar Cerrillo Gonzalez, Amir Taqieddin, Stephanie Sarrouf, Muhammad Fahad Ehsan, Akram N. Alshawabkeh
+            </p>
+            <p class="pub-title">
+              <strong>
+                Enhancing H<sub>2</sub>O<sub>2</sub> Generation Using Activated Carbon Electrocatalyst Cathode: Experimental and
+                Computational Insights on Current, Cathode Design, and Reactor Configuration
+              </strong>
+            </p>
+            <p class="pub-venue">
+              Catalysts, 2025
+            </p>
+            <p class="pub-links">
+              <a href="https://www.mdpi.com/2073-4344/15/2/189" target="_blank" rel="noopener">Paper</a>
+            </p>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              Michael T. Hwang, Mohammad Heiranian, Yerim Kim, Juyoung Leem, Amir Taqieddin, Arend M. van der Zande, et al.
+            </p>
+            <p class="pub-title">
+              <strong>
+                Ultrasensitive Detection of Nucleic Acids Using Deformed Graphene Channel Field-Effect Biosensors
+              </strong>
+            </p>
+            <p class="pub-venue">
+              Nature Communications, 2020
+            </p>
+            <p class="pub-links">
+              <a href="https://www.nature.com/articles/s41467-020-15330-9" target="_blank" rel="noopener">Paper</a>
+            </p>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              Amir Taqieddin
+            </p>
+            <p class="pub-title">
+              <strong>
+                Review—Mathematical Formulations of Electrochemically Gas-Evolving Systems
+              </strong>
+            </p>
+            <p class="pub-venue">
+              Journal of The Electrochemical Society, 2018
+            </p>
+            <p class="pub-links">
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6287757/" target="_blank" rel="noopener">Paper</a>
+            </p>
+          </article>
         </div>
 
         <p class="pub-note">
-          Full publication list on 
-          <a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a> and 
-          <a href="https://orcid.org/0000-0002-5743-7110" target="_blank" rel="noopener noreferrer">ORCID</a>.
+          A full list of publications is available on my
+          <a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+          and <a href="https://orcid.org/0000-0002-5743-7110" target="_blank" rel="noopener">ORCID</a> profiles.
         </p>
       </div>
     </section>
@@ -171,32 +603,42 @@
       <div class="container">
         <h2>Teaching</h2>
         <p>
-          My teaching spans <strong>mechanical and environmental engineering</strong>, mentoring students and delivering research seminars in electrochemistry and materials science.
+          My teaching experience spans <strong>mechanical and environmental engineering</strong>, including mentoring graduate and
+          undergraduate students, giving research seminars, and participating in interdisciplinary collaborations across
+          electrochemistry, transport phenomena, and materials science.
         </p>
 
         <div class="grid">
           <div class="card">
             <h3>Teaching &amp; Mentoring Experience</h3>
             <ul class="plain-list">
-              <li>Mentored students in computational electrochemistry and materials modeling.</li>
-              <li>Gave lectures on ROS generation, CO<sub>2</sub> sequestration, and AI for energy storage.</li>
-              <li>Supervised independent projects in nanofluidics and materials informatics.</li>
+              <li>
+                Mentored graduate and undergraduate students in computational electrochemistry, materials modeling, and
+                electrochemical water treatment.
+              </li>
+              <li>
+                Delivered research talks and invited presentations on electrochemical ROS generation, CO<sub>2</sub> sequestration,
+                and AI-enabled energy storage.
+              </li>
+              <li>
+                Supervised student projects related to multiscale modeling, nanofluidics, and data-driven materials design.
+              </li>
             </ul>
           </div>
 
           <div class="card">
             <h3>Teaching Interests</h3>
-            <p>Prepared to teach core courses such as:</p>
+            <p>I am prepared to teach core courses such as:</p>
             <ul class="plain-list">
-              <li>Thermofluids &amp; transport phenomena</li>
-              <li>Numerical methods &amp; scientific computing</li>
-              <li>Electrochemical engineering</li>
+              <li>Thermofluids and transport phenomena</li>
+              <li>Numerical methods and scientific computing</li>
+              <li>Electrochemical engineering and energy systems</li>
             </ul>
-            <p>Interested in developing courses on:</p>
+            <p>I am also interested in developing advanced and interdisciplinary courses on:</p>
             <ul class="plain-list">
-              <li>Electrochemical water treatment</li>
-              <li>Materials informatics &amp; ML for materials</li>
-              <li>Nanofluidics and 2D materials</li>
+              <li>Electrochemical water treatment and environmental electrochemistry</li>
+              <li>Materials informatics and machine learning for materials design</li>
+              <li>Nanofluidics, 2D materials, and sensors for sustainability</li>
             </ul>
           </div>
         </div>
@@ -206,15 +648,22 @@
     <!-- DOCUMENTS -->
     <section id="cv" class="section">
       <div class="container">
-        <h2>CV &amp; Academic Documents</h2>
-        <p>Full CV and academic statements are available upon request.</p>
+        <h2>CV &amp; Academic Statements</h2>
         <p>
-          <a class="button" href="mailto:taqieddin.a@northeastern.edu?subject=Request%20for%20CV" aria-label="Email to request CV and teaching statement">
-            Request CV &amp; Teaching Statement
+          My full curriculum vitae and academic statements (research, teaching, and when relevant, DEI) are available
+          upon request.
+        </p>
+        <p>
+          <a
+            class="button"
+            href="mailto:taqieddin.a@northeastern.edu?subject=Request%20for%20CV%20and%20teaching%20statement"
+          >
+            Request CV &amp; Teaching Statement by Email
           </a>
         </p>
         <p class="small-note">
-          Search committees may request tailored documents aligned with departmental priorities.
+          For search committees: I am happy to provide tailored research, teaching, and diversity statements that align
+          with your department's needs and priorities.
         </p>
       </div>
     </section>
@@ -224,33 +673,40 @@
       <div class="container two-column">
         <div>
           <h2>Contact</h2>
-          <p>Reach out regarding academic positions, collaborations, talks, or mentorship.</p>
           <p>
-            <strong>Email:</strong> <a href="mailto:taqieddin.a@northeastern.edu">taqieddin.a@northeastern.edu</a><br />
+            Please contact me regarding faculty opportunities, research collaborations, invited talks, and student
+            mentorship.
+          </p>
+          <p>
+            <strong>Email:</strong>
+            <a href="mailto:taqieddin.a@northeastern.edu">taqieddin.a@northeastern.edu</a><br />
             <strong>Location:</strong> Boulder, CO, USA
           </p>
           <p>
             <strong>Links:</strong><br />
-            <a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank" rel="noopener noreferrer">Google Scholar</a> ·
-            <a href="https://orcid.org/0000-0002-5743-7110" target="_blank" rel="noopener noreferrer">ORCID</a> ·
-            <a href="https://github.com/amirtaqi" target="_blank" rel="noopener noreferrer">GitHub</a> ·
-            <a href="https://linkedin.com/in/amirtaqi" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+            <a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank" rel="noopener">Google Scholar</a> ·
+            <a href="https://orcid.org/0000-0002-5743-7110" target="_blank" rel="noopener">ORCID</a> ·
+            <a href="https://github.com/amirtaqi" target="_blank" rel="noopener">GitHub (personal)</a> ·
+            <a href="https://github.com/amirtaqiSP" target="_blank" rel="noopener">GitHub (Solid Power)</a> ·
+            <a href="https://www.researchgate.net/profile/Amir-Taqieddin" target="_blank" rel="noopener">ResearchGate</a> ·
+            <a href="https://www.semanticscholar.org/author/Amir-Taqieddin/41048529" target="_blank" rel="noopener">Semantic Scholar</a> ·
+            <a href="https://www.linkedin.com/in/amirtaqi" target="_blank" rel="noopener">LinkedIn</a>
           </p>
         </div>
 
         <aside class="highlight-card">
           <h3>For Search Committees</h3>
           <ul>
-            <li><a href="#research">Research Overview</a></li>
-            <li><a href="#publications">Publications</a></li>
-            <li><a href="#teaching">Teaching Interests</a></li>
-            <li><a href="#cv">CV &amp; Statements</a></li>
+            <li><a href="#research">Research program overview</a></li>
+            <li><a href="#publications">Key publications &amp; review articles</a></li>
+            <li><a href="#teaching">Teaching interests &amp; mentoring</a></li>
+            <li><a href="#cv">CV &amp; academic statements</a></li>
           </ul>
-          <h3>Recent Highlights</h3>
+          <h3>Recent Activity</h3>
           <ul>
-            <li>AI for Solid-State Batteries</li>
-            <li>Modeling GAC Electrodes</li>
-            <li>Electrochemical CO<sub>2</sub> Sequestration</li>
+            <li>AI for Energy Storage &amp; solid-state batteries</li>
+            <li>Multiscale modeling of GAC electrodes for water treatment</li>
+            <li>CO<sub>2</sub> sequestration via electrochemical ocean iron fertilization</li>
           </ul>
         </aside>
       </div>
@@ -260,22 +716,36 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>&copy; <span id="year"></span> Amir Taqieddin</p>
-      <p class="footer-note">Built with HTML &amp; CSS · Hosted on GitHub Pages</p>
+      <p class="footer-note">Built with HTML &amp; CSS, hosted on GitHub Pages.</p>
     </div>
   </footer>
 
   <script>
-    // Set year
+    // Set current year in footer
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Mobile navigation toggle
+    // Mobile nav toggle with improved UX
     const navToggle = document.querySelector(".nav-toggle");
     const navLinks = document.querySelector(".nav-links");
 
     if (navToggle && navLinks) {
+      // Toggle menu on button click
       navToggle.addEventListener("click", () => {
-        const isOpen = navLinks.classList.toggle("nav-open");
-        navToggle.setAttribute("aria-expanded", isOpen);
+        navLinks.classList.toggle("nav-open");
+      });
+
+      // Close menu when clicking a link
+      navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("nav-open");
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener("click", (e) => {
+        if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove("nav-open");
+        }
       });
     }
   </script>
