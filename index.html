@@ -4,12 +4,8 @@
   <meta charset="UTF-8" />
   <title>Amir Taqieddin – Materials Informatics & Electrochemical Systems</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Amir Taqieddin: Materials Informatics Scientist at Solid Power with expertise in electrochemical systems, water treatment, CO2 sequestration, nanofluidics, and 2D materials." />
+  <meta name="description" content="Amir Taqieddin, PhD – Materials Informatics Scientist at Solid Power with 20+ publications and 1.3k+ citations across solid-state batteries, electrochemical water treatment, ocean-based CO2 sequestration, nanofluidics, and AI for materials and energy systems." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-  
   <style>
 /* Base styles with dark theme */
 *,
@@ -43,7 +39,6 @@ body {
   --orange-soft-bg: rgba(237, 145, 34, 0.1);
   --card-bg: rgba(15, 23, 42, 0.85);
   --card-hover: rgba(25, 33, 52, 0.95);
-  --code-font: 'Fira Code', 'Courier New', monospace;
 }
 
 /* Layout helpers */
@@ -54,16 +49,33 @@ body {
   padding: 0 2rem;
 }
 
-/* NEW: Canvas Constellation Background */
-#particle-canvas {
+/* Animated background particles */
+.particles {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
+  overflow: hidden;
   z-index: 0;
   pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--orange);
+  border-radius: 50%;
   opacity: 0.3;
+  animation: float 20s infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-100px) translateX(50px); }
+  50% { transform: translateY(-200px) translateX(-30px); }
+  75% { transform: translateY(-100px) translateX(-60px); }
 }
 
 /* Header & navigation */
@@ -76,12 +88,6 @@ body {
   top: 0;
   z-index: 100;
   border-bottom: 2px solid var(--orange);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0);
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.site-header.header-scrolled {
-  background: rgba(6, 42, 119, 0.98);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -195,7 +201,6 @@ body {
   overflow: hidden;
 }
 
-/* NEW: Replaced dot pattern with grid pattern */
 .hero::before {
   content: '';
   position: absolute;
@@ -203,9 +208,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image:
-    linear-gradient(rgba(237, 145, 34, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(237, 145, 34, 0.05) 1px, transparent 1px);
+  background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="1" fill="%23ED9122" opacity="0.1"/></svg>');
   background-size: 50px 50px;
   opacity: 0.3;
   z-index: 0;
@@ -226,28 +229,11 @@ body {
   font-weight: 800;
 }
 
-/* NEW: Styles for typing animation */
-.hero .subtitle-container {
+.hero .subtitle {
   font-size: 1.4rem;
   color: var(--orange);
   margin-bottom: 0.5rem;
   font-weight: 600;
-  height: 1.7rem; /* Fix height to prevent layout shift */
-}
-
-.hero .subtitle-cursor {
-  display: inline-block;
-  background-color: var(--orange);
-  width: 10px;
-  height: 1.4rem;
-  margin-left: 5px;
-  animation: blink 1s infinite;
-  vertical-align: middle;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
 }
 
 .hero .description {
@@ -412,8 +398,7 @@ body {
   background: var(--card-hover);
   border-color: var(--orange);
   transform: translateY(-8px);
-  /* Enhanced glow effect */
-  box-shadow: 0 12px 30px rgba(237, 145, 34, 0.3), 0 0 20px rgba(237, 145, 34, 0.2);
+  box-shadow: 0 12px 30px rgba(237, 145, 34, 0.3);
 }
 
 .card:hover::before {
@@ -457,6 +442,14 @@ body {
   left: 0;
   color: var(--orange);
   font-weight: bold;
+}
+
+/* Collaboration notes on research cards */
+.collab-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #9ca3af;
+  font-style: italic;
 }
 
 /* Research flow diagram */
@@ -509,78 +502,6 @@ body {
   color: var(--orange);
   font-size: 2rem;
 }
-
-/* NEW: Research Philosophy as Code Block */
-.code-block-philosophy {
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 16px;
-  padding: 2rem;
-  border: 1px solid rgba(237, 145, 34, 0.3);
-  margin-top: 4rem;
-  font-family: var(--code-font);
-  line-height: 1.8;
-  font-size: 1rem;
-  overflow-x: auto;
-}
-.code-block-philosophy h3 {
-  color: var(--orange);
-  font-family: 'Segoe UI', system-ui, sans-serif; /* Use normal font for header */
-  text-align: center;
-  font-size: 1.8rem;
-  margin: 0 0 1.5rem 0;
-}
-.code-block-philosophy pre {
-  margin: 0;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
-/* Syntax highlighting */
-.code-block-philosophy .token-comment { color: #9ca3af; }
-.code-block-philosophy .token-key { color: var(--orange); }
-.code-block-philosophy .token-string { color: #e5e7eb; }
-.code-block-philosophy .token-punctuation { color: #d1d5db; }
-.code-block-philosophy .token-operator { color: var(--amber); }
-
-/* NEW: Technical Toolkit Section */
-.toolkit-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-.toolkit-card {
-  background: var(--card-bg);
-  border-radius: 16px;
-  padding: 1.5rem;
-  border: 1px solid rgba(237, 145, 34, 0.2);
-  transition: all 0.3s ease;
-}
-.toolkit-card:hover {
-  border-color: var(--orange);
-  box-shadow: 0 8px 25px rgba(237, 145, 34, 0.3);
-}
-.toolkit-card h3 {
-  margin: 0 0 1rem 0;
-  color: var(--orange);
-  font-size: 1.3rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-.toolkit-card ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.toolkit-card li {
-  color: #d1d5db;
-  padding: 0.25rem 0;
-}
-.toolkit-card li::before {
-  content: '»';
-  margin-right: 0.5rem;
-  color: var(--orange);
-}
-
 
 /* Publications */
 .pub-item {
@@ -686,7 +607,61 @@ body {
   align-items: flex-start;
 }
 
-/* REPLACED: .highlight-card is no longer used, replaced by Toolkit */
+.highlight-card {
+  background: var(--card-bg);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 2px solid rgba(237, 145, 34, 0.3);
+  position: sticky;
+  top: 100px;
+}
+
+.highlight-card h3 {
+  color: var(--orange);
+  font-size: 1.3rem;
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid rgba(237, 145, 34, 0.3);
+}
+
+.highlight-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.highlight-card ul li {
+  color: #d1d5db;
+  padding: 0.5rem 0;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.highlight-card ul li::before {
+  content: '●';
+  position: absolute;
+  left: 0;
+  color: var(--orange);
+}
+
+.highlight-card a {
+  color: var(--amber);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.highlight-card a:hover {
+  color: var(--orange);
+  text-decoration: underline;
+}
+
+/* Media section intro */
+.media-intro {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  color: #d1d5db;
+  text-align: center;
+}
 
 /* Contact links */
 .contact-links {
@@ -772,6 +747,10 @@ body {
     grid-template-columns: 1fr;
   }
   
+  .highlight-card {
+    position: static;
+  }
+  
   .research-flow {
     flex-direction: column;
   }
@@ -786,12 +765,8 @@ body {
     font-size: 2.5rem;
   }
   
-  .hero .subtitle-container {
+  .hero .subtitle {
     font-size: 1.1rem;
-    height: 1.4rem;
-  }
-  .hero .subtitle-cursor {
-    height: 1.1rem;
   }
   
   .hero .description {
@@ -857,20 +832,25 @@ body {
 }
 
 /* Scroll animations */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.animate-on-scroll.is-visible {
-  opacity: 1;
-  transform: translateY(0);
+.fade-in {
+  animation: fadeInUp 0.6s ease-out;
 }
   </style>
 </head>
 <body>
-  <canvas id="particle-canvas"></canvas>
+  <!-- Animated particles background -->
+  <div class="particles" id="particles"></div>
 
   <header class="site-header">
     <div class="container header-inner">
@@ -878,35 +858,35 @@ body {
         <h1 class="name">Amir Taqieddin</h1>
         <p class="tagline">Materials Informatics · Electrochemical Systems · Energy Storage</p>
         <p class="affiliation">
-          Materials Informatics Scientist, Solid Power · PhD, Mechanical & Industrial Engineering
+          Materials Informatics Scientist, Solid Power · PhD, Mechanical &amp; Industrial Engineering
         </p>
       </div>
 
       <nav class="site-nav">
-        <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+        <button class="nav-toggle" aria-label="Toggle navigation">
           <i class="fas fa-bars"></i>
         </button>
         <ul class="nav-links">
           <li><a href="#about"><i class="fas fa-user"></i> About</a></li>
-          <li><a href="#toolkit"><i class="fas fa-cogs"></i> Toolkit</a></li>
           <li><a href="#research"><i class="fas fa-flask"></i> Research</a></li>
           <li><a href="#publications"><i class="fas fa-file-alt"></i> Publications</a></li>
+          <li><a href="#media"><i class="fas fa-video"></i> Media</a></li>
+          <li><a href="#teaching"><i class="fas fa-chalkboard-teacher"></i> Teaching</a></li>
           <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
+  <!-- Hero Section -->
   <section class="hero">
     <div class="container hero-content">
-      <h1>Multiscale Computation for Energy & Materials</h1>
-      <p class="subtitle-container">
-        <span id="type-subtitle"></span><span class="subtitle-cursor"></span>
-      </p>
+      <h1>Multiscale Computation for Energy &amp; Materials</h1>
+      <p class="subtitle">Physics-Based Modeling · Machine Learning · Materials Informatics</p>
       <p class="description">
-        Combining computational science, data-driven methods, and experimental validation to accelerate 
-        the design of next-generation electrochemical systems for energy storage, water treatment, 
-        and climate solutions.
+        Combining multiscale simulation, physics-informed AI, and experiments to accelerate 
+        the design of next-generation batteries, electrochemical water treatment systems, 
+        and ocean-based CO₂ removal technologies.
       </p>
       <div class="cta-buttons">
         <a href="#research" class="btn btn-primary">
@@ -915,52 +895,56 @@ body {
         <a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank" class="btn btn-secondary">
           <i class="fas fa-graduation-cap"></i> View Publications
         </a>
+        <a href="#contact" class="btn btn-secondary">
+          <i class="fas fa-handshake"></i> Collaborate
+        </a>
       </div>
     </div>
   </section>
 
   <main>
+    <!-- ABOUT -->
     <section id="about" class="section">
       <div class="container">
-        <div class="section-header animate-on-scroll">
+        <div class="section-header">
           <h2>About</h2>
-          <p>Bridging fundamental science and engineering innovation</p>
+          <p>Bridging fundamental science, scalable computation, and engineering innovation</p>
         </div>
 
         <div class="two-column">
           <div>
-            <div class="icon-box animate-on-scroll">
+            <div class="icon-box">
               <div class="icon-box-icon">
                 <i class="fas fa-building"></i>
               </div>
               <div class="icon-box-content">
                 <h3>Current Position</h3>
                 <p>
-                  <strong>Materials Informatics Scientist</strong> at Solid Power Operating Inc., developing 
-                  data-driven computational frameworks and multiscale simulations for next-generation solid-state 
-                  batteries. My work applies AI and machine learning to accelerate materials discovery and optimize 
-                  cell performance for commercial deployment.
+                  <strong>Materials Informatics Scientist</strong> at Solid Power Operating Inc., leading AI-driven
+                  digital twins and multiscale simulations for next-generation solid-state and lithium-ion batteries.
+                  Previously, I was a researcher at Nissan’s Advanced Technology Center – Silicon Valley, where I
+                  worked on materials informatics and battery management systems for electric vehicles.
                 </p>
               </div>
             </div>
 
-            <div class="icon-box animate-on-scroll">
+            <div class="icon-box">
               <div class="icon-box-icon">
                 <i class="fas fa-graduation-cap"></i>
               </div>
               <div class="icon-box-content">
                 <h3>Academic Background</h3>
                 <p>
-                  <strong>PhD in Mechanical & Industrial Engineering</strong> from Northeastern University, with 
-                  dissertation focused on multiscale computational frameworks for carbon- and iron-based materials 
-                  in electrochemical water treatment and CO₂ capture. Prior research at University of Illinois 
-                  at Urbana–Champaign on nanofluidics, interfacial transport, and 2D materials including graphene 
-                  biosensors.
-                </spp>
+                  <strong>PhD in Mechanical &amp; Industrial Engineering</strong> from Northeastern University, where my
+                  dissertation developed multiscale computational frameworks for carbon- and iron-based materials in
+                  electrochemical water treatment and ocean-based CO₂ removal. Prior work at the University of Illinois
+                  at Urbana–Champaign focused on nanofluidics, interfacial transport, and 2D materials including 
+                  graphene biosensors.
+                </p>
               </div>
             </div>
 
-            <div class="icon-box animate-on-scroll">
+            <div class="icon-box">
               <div class="icon-box-icon">
                 <i class="fas fa-chart-line"></i>
               </div>
@@ -970,112 +954,94 @@ body {
                   My research integrates <strong>multiscale physics-based modeling, machine learning, 
                   and materials informatics</strong> to solve critical challenges in energy storage, water treatment, 
                   and climate technologies. I develop computational frameworks that connect molecular-scale phenomena 
-                  to device- and system-level performance, enabling predictive design and optimization.
+                  to device- and system-level performance, enabling predictive design and optimization—from ocean 
+                  carbon removal reactors to solid-state batteries.
                 </p>
               </div>
             </div>
           </div>
 
-          <div>
-            <div class="stats" style="margin-top: 0;">
-              <div class="stat-item animate-on-scroll">
-                <div class="stat-number">596</div>
-                <div class="stat-label">Citations</div>
-              </div>
-              <div class="stat-item animate-on-scroll">
-                <div class="stat-number">15+</div>
-                <div class="stat-label">Publications</div>
-              </div>
-              <div class="stat-item animate-on-scroll">
-                <div class="stat-number">3</div>
-                <div class="stat-label">Research Domains</div>
-              </div>
-              <div class="stat-item animate-on-scroll">
-                <div class="stat-number">10+</div>
-                <div class="stat-label">Collaborations</div>
-              </div>
-            </div>
+          <aside class="highlight-card">
+            <h3><i class="fas fa-star"></i> Key Highlights</h3>
+            <ul>
+              <li><strong>1,300+</strong> citations &amp; <strong>20</strong> peer-reviewed publications</li>
+              <li>Lead author in <em>npj Ocean Sustainability</em>, <em>ACS ES&amp;T Water</em>, and <em>Catalysts</em></li>
+              <li>Co-author on <em>Nature Communications</em>, <em>ACS Nano</em>, and MDPI <em>Fluids</em></li>
+              <li>Industry experience at Nissan ATC &amp; Solid Power</li>
+              <li>Co-inventor on an AI-enabled vehicle battery management system patent application</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem;"><i class="fas fa-microscope"></i> Expertise</h3>
+            <ul>
+              <li>Multiscale computational modeling</li>
+              <li>Materials informatics &amp; physics-informed ML</li>
+              <li>Electrochemical systems (water, CO₂, batteries)</li>
+              <li>Battery materials, safety &amp; digital twins</li>
+              <li>Nanofluidics &amp; 2D materials</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem;"><i class="fas fa-link"></i> Links</h3>
+            <ul>
+              <li><a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Google Scholar</a></li>
+              <li><a href="https://github.com/amirtaqiSP" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/amirtaqi" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+              <li><a href="https://orcid.org/0000-0002-5743-7110" target="_blank"><i class="fab fa-orcid"></i> ORCID</a></li>
+              <li><a href="https://www.youtube.com/@AmirTaqieddin" target="_blank"><i class="fab fa-youtube"></i> YouTube</a></li>
+            </ul>
+          </aside>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-number">1.3k+</div>
+            <div class="stat-label">Citations</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">20</div>
+            <div class="stat-label">Publications</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">4</div>
+            <div class="stat-label">Core Research Domains</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">20+</div>
+            <div class="stat-label">Cross-disciplinary Collaborations</div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="toolkit" class="section section-alt">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Technical Toolkit</h2>
-                <p>The core computational tools and frameworks I use to build solutions</p>
-            </div>
-            
-            <div class="toolkit-grid">
-                <div class="toolkit-card animate-on-scroll">
-                    <h3><i class="fas fa-code"></i> Languages</h3>
-                    <ul>
-                        <li>Python</li>
-                        <li>C++ / C</li>
-                        <li>MATLAB</li>
-                        <li>Bash Scripting</li>
-                    </ul>
-                </div>
-                <div class="toolkit-card animate-on-scroll">
-                    <h3><i class="fas fa-brain"></i> ML & Data Science</h3>
-                    <ul>
-                        <li>PyTorch & TensorFlow</li>
-                        <li>Scikit-learn</li>
-                        <li>Pandas & NumPy</li>
-                        <li>Graph Neural Networks (GNNs)</li>
-                        <li>PINNs (Physics-Informed)</li>
-                    </ul>
-                </div>
-                <div class="toolkit-card animate-on-scroll">
-                    <h3><i class="fas fa-atom"></i> Computational Science</h3>
-                    <ul>
-                        <li>LAMMPS (MD)</li>
-                        <li>COMSOL (FEM)</li>
-                        <li>DFT (VASP, Quantum Espresso)</li>
-                        <li>OpenFOAM (CFD)</li>
-                    </ul>
-                </div>
-                <div class="toolkit-card animate-on-scroll">
-                    <h3><i class="fas fa-server"></i> Tools & Platforms</h3>
-                    <ul>
-                        <li>HPC & Slurm</li>
-                        <li>Git & GitHub</li>
-                        <li>Docker</li>
-                        <li>AWS / GCP</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="research" class="section">
+    <!-- RESEARCH -->
+    <section id="research" class="section section-alt">
       <div class="container">
-        <div class="section-header animate-on-scroll">
+        <div class="section-header">
           <h2>Research Program</h2>
           <p>Multiscale ML and computation for electrochemical materials, batteries, and reactors</p>
         </div>
 
+        <!-- Research Flow -->
         <div class="research-flow">
-          <div class="flow-item animate-on-scroll">
+          <div class="flow-item">
             <div class="flow-icon"><i class="fas fa-atom"></i></div>
             <h4>Atomistic Scale</h4>
             <p>MD, DFT, force fields</p>
           </div>
           <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-          <div class="flow-item animate-on-scroll">
+          <div class="flow-item">
             <div class="flow-icon"><i class="fas fa-cubes"></i></div>
             <h4>Microstructure</h4>
             <p>Porous media, interfaces</p>
           </div>
           <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-          <div class="flow-item animate-on-scroll">
+          <div class="flow-item">
             <div class="flow-icon"><i class="fas fa-battery-full"></i></div>
             <h4>Device/Cell</h4>
             <p>Batteries, sensors, reactors</p>
           </div>
           <div class="flow-arrow"><i class="fas fa-arrow-right"></i></div>
-          <div class="flow-item animate-on-scroll">
+          <div class="flow-item">
             <div class="flow-icon"><i class="fas fa-industry"></i></div>
             <h4>System Level</h4>
             <p>Packs, grids, deployment</p>
@@ -1083,9 +1049,9 @@ body {
         </div>
 
         <div class="grid">
-          <article class="card animate-on-scroll">
+          <article class="card">
             <div class="card-icon"><i class="fas fa-bolt"></i></div>
-            <h3>Energy Storage & Batteries</h3>
+            <h3>Energy Storage &amp; Batteries</h3>
             <p>
               Developing digital twins and physics-informed ML for safe, fast-charging batteries. Integrating 
               electro-chemo-mechanical and thermal modeling with real-time control strategies for solid-state 
@@ -1097,9 +1063,13 @@ body {
               <li>Safe fast-charging protocols</li>
               <li>ML-accelerated design maps</li>
             </ul>
+            <p class="collab-note">
+              Collaboration opportunities: AI-enabled battery digital twins, fast-charging protocol design, and
+              thermal-mechanical safety modeling with OEMs, suppliers, and research labs.
+            </p>
           </article>
 
-          <article class="card animate-on-scroll">
+          <article class="card">
             <div class="card-icon"><i class="fas fa-layer-group"></i></div>
             <h3>Materials Informatics</h3>
             <p>
@@ -1110,12 +1080,16 @@ body {
             <ul>
               <li>Structure-property relationships</li>
               <li>Microstructure-aware design</li>
-              <li>3D imaging & tomography analysis</li>
+              <li>3D imaging &amp; tomography analysis</li>
               <li>Generative models for materials</li>
             </ul>
+            <p class="collab-note">
+              Collaboration opportunities: tomography-driven microstructure analysis, generative design of porous
+              materials, and ML workflows for solid electrolytes and composite electrodes.
+            </p>
           </article>
 
-          <article class="card animate-on-scroll">
+          <article class="card">
             <div class="card-icon"><i class="fas fa-tint"></i></div>
             <h3>Electrochemical Water Treatment</h3>
             <p>
@@ -1129,11 +1103,15 @@ body {
               <li>Flow-through reactor optimization</li>
               <li>Scale-up and MRV frameworks</li>
             </ul>
+            <p class="collab-note">
+              Collaboration opportunities: scaling GAC-based reactors, integrating modeling with pilot systems,
+              and developing MRV and techno-economic frameworks for decentralized treatment.
+            </p>
           </article>
 
-          <article class="card animate-on-scroll">
+          <article class="card">
             <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
-            <h3>CO₂ Sequestration & Climate</h3>
+            <h3>CO₂ Sequestration &amp; Climate</h3>
             <p>
               Electrochemical strategies coupling iron chemistry, alkalinity enhancement, and carbon capture. 
               Developing reactor designs and MRV tools for ocean iron fertilization and carbon dioxide removal 
@@ -1142,43 +1120,106 @@ body {
             <ul>
               <li>Ocean alkalinity enhancement</li>
               <li>Iron-based electrochemical CDR</li>
-              <li>Monitoring & verification (MRV)</li>
+              <li>Monitoring &amp; verification (MRV)</li>
               <li>Techno-economic analysis</li>
             </ul>
+            <p class="collab-note">
+              Collaboration opportunities: marine CDR consortia, model-development for field pilots, and 
+              independent MRV for electrochemical ocean iron fertilization and alkalinity enhancement.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon"><i class="fas fa-microchip"></i></div>
+            <h3>Nanofluidics &amp; 2D Materials</h3>
+            <p>
+              Transport in nanoscale channels and heterostructures, including electroosmotic coupling and 
+              high-sensitivity biosensors based on deformed graphene and MoS₂ for nucleic acid detection and 
+              biosensing applications.
+            </p>
+            <ul>
+              <li>Electroosmotic transport</li>
+              <li>Graphene field-effect biosensors</li>
+              <li>Nanoscale hydrodynamics</li>
+              <li>2D heterostructure devices</li>
+            </ul>
+            <p class="collab-note">
+              Collaboration opportunities: joint projects on graphene/TMDC sensors, flexible electronics, and 
+              nanofluidic transport simulations for biosensing or separation technologies.
+            </p>
+          </article>
+
+          <article class="card">
+            <div class="card-icon"><i class="fas fa-brain"></i></div>
+            <h3>Machine Learning &amp; AI</h3>
+            <p>
+              Physics-informed neural networks, operator learning, uncertainty quantification, and Bayesian 
+              optimization for materials discovery, process control, and design space exploration across 
+              energy and environmental systems.
+            </p>
+            <ul>
+              <li>Physics-informed ML</li>
+              <li>Neural operators for PDEs</li>
+              <li>Uncertainty quantification</li>
+              <li>Inverse design optimization</li>
+            </ul>
+            <p class="collab-note">
+              Collaboration opportunities: physics-informed ML for materials and energy systems, shared datasets 
+              and benchmarks, and community projects such as hackathons and open-source tools.
+            </p>
           </article>
         </div>
 
-        <div class="code-block-philosophy animate-on-scroll">
-            <h3><i class="fas fa-lightbulb"></i> Research Philosophy</h3>
-            <pre><code><span class="token-comment">/* My computational philosophy centers on building frameworks
-  that bridge scales and methodologies.
-*/</span>
-<span class="token-punctuation">{</span>
-  <span class="token-key">"philosophy"</span><span class="token-punctuation">:</span> <span class="token-string">"Integrate multiscale physics and data-driven ML"</span><span class="token-punctuation">,</span>
-  <span class="token-key">"goal"</span><span class="token-punctuation">:</span> <span class="token-string">"Enable forward performance prediction and inverse, target-driven design"</span><span class="token-punctuation">,</span>
-  <span class="token-key">"domains"</span><span class="token-punctuation">:</span> <span class="token-punctuation">[</span><span class="token-string">"Sustainable Energy"</span><span class="token-punctuation">,</span> <span class="token-string">"Environmental Applications"</span><span class="token-punctuation">]</span><span class="token-punctuation">,</span>
-  <span class="token-key">"pillars"</span><span class="token-punctuation">:</span> <span class="token-punctuation">[</span>
-    <span class="token-punctuation">{</span> <span class="token-key">"name"</span><span class="token-punctuation">:</span> <span class="token-string">"Mechanistic"</span><span class="token-punctuation">,</span> <span class="token-key">"desc"</span><span class="token-punctuation">:</span> <span class="token-string">"Physics-first approach"</span> <span class="token-punctuation">}</span><span class="token-punctuation">,</span>
-    <span class="token-punctuation">{</span> <span class="token-key">"name"</span><span class="token-punctuation">:</span> <span class="token-string">"Data-Driven"</span><span class="token-punctuation">,</span> <span class="token-key">"desc"</span><span class="token-punctuation">:</span> <span class="token-string">"ML-accelerated design"</span> <span class="token-punctuation">}</span><span class="token-punctuation">,</span>
-    <span class="token-punctuation">{</span> <span class="token-key">"name"</span><span class="token-punctuation">:</span> <span class="token-string">"Multi-Scale"</span><span class="token-punctuation">,</span> <span class="token-key">"desc"</span><span class="token-punctuation">:</span> <span class="token-string">"Connecting atoms to systems"</span> <span class="token-punctuation">}</span><span class="token-punctuation">,</span>
-    <span class="token-punctuation">{</span> <span class="token-key">"name"</span><span class="token-punctuation">:</span> <span class="token-string">"Validated"</span><span class="token-punctuation">,</span> <span class="token-key">"desc"</span><span class="token-punctuation">:</span> <span class="token-string">"Experiment-informed & validated"</span> <span class="token-punctuation">}</span>
-  <span class="token-punctuation">]</span>
-<span class="token-punctuation">}</span></code></pre>
+        <!-- Research Vision Box -->
+        <div style="margin-top: 4rem; background: var(--card-bg); border-radius: 16px; padding: 3rem; border: 2px solid var(--orange);">
+          <h3 style="color: var(--orange); text-align: center; font-size: 1.8rem; margin-bottom: 1.5rem;">
+            <i class="fas fa-lightbulb"></i> Research Philosophy
+          </h3>
+          <p style="text-align: center; font-size: 1.1rem; color: #d1d5db; max-width: 900px; margin: 0 auto 2rem; line-height: 1.8;">
+            Building computational frameworks that integrate <strong>multiscale physics-based modeling</strong> and 
+            <strong>data-driven machine learning</strong> to enable both forward performance prediction and inverse, 
+            target-driven design of electrochemical materials, devices, and processes for sustainable energy and 
+            environmental applications — from ROS-generating activated carbon electrodes and ocean iron fertilization 
+            reactors to AI-designed solid-state batteries.
+          </p>
+          <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+            <div style="text-align: center;">
+              <div style="font-size: 2rem; color: var(--orange); margin-bottom: 0.5rem;"><i class="fas fa-atom"></i></div>
+              <div style="color: #ffffff; font-weight: 600;">Mechanistic</div>
+              <div style="color: #d1d5db; font-size: 0.9rem;">Physics-first approach</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 2rem; color: var(--orange); margin-bottom: 0.5rem;"><i class="fas fa-database"></i></div>
+              <div style="color: #ffffff; font-weight: 600;">Data-Driven</div>
+              <div style="color: #d1d5db; font-size: 0.9rem;">ML-accelerated design</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 2rem; color: var(--orange); margin-bottom: 0.5rem;"><i class="fas fa-balance-scale"></i></div>
+              <div style="color: #ffffff; font-weight: 600;">Multi-Scale</div>
+              <div style="color: #d1d5db; font-size: 0.9rem;">Atoms to systems</div>
+            </div>
+            <div style="text-align: center;">
+              <div style="font-size: 2rem; color: var(--orange); margin-bottom: 0.5rem;"><i class="fas fa-check-circle"></i></div>
+              <div style="color: #ffffff; font-weight: 600;">Validated</div>
+              <div style="color: #d1d5db; font-size: 0.9rem;">Experiment-informed</div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
-    <section id="publications" class="section section-alt">
+    <!-- PUBLICATIONS -->
+    <section id="publications" class="section">
       <div class="container">
-        <div class="section-header animate-on-scroll">
+        <div class="section-header">
           <h2>Selected Publications</h2>
           <p>High-impact research spanning electrochemistry, materials, and computational methods</p>
         </div>
 
         <div class="pub-list">
-          <article class="pub-item animate-on-scroll">
+          <article class="pub-item">
             <p class="pub-authors">
-              <i class="fas fa-user"></i> Amir Taqieddin
+              <i class="fas fa-user"></i> Amir Taqieddin, Stephanie Sarrouf, Muhammad Fahad Ehsan, Akram N. Alshawabkeh
             </p>
             <p class="pub-title">
               <strong>
@@ -1187,18 +1228,21 @@ body {
               </strong>
             </p>
             <p class="pub-venue">
-              <i class="fas fa-book"></i> ACS ES&T Water, 2025
+              <i class="fas fa-book"></i> ACS ES&amp;T Water, 2025
             </p>
             <div class="pub-links">
               <a href="https://pubs.acs.org/doi/10.1021/acsestwater.5c00247" target="_blank" rel="noopener">
                 <i class="fas fa-external-link-alt"></i> Paper
               </a>
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC12172041/" target="_blank" rel="noopener">
+                <i class="fas fa-unlock"></i> Open Access
+              </a>
             </div>
           </article>
 
-          <article class="pub-item animate-on-scroll">
+          <article class="pub-item">
             <p class="pub-authors">
-              <i class="fas fa-user"></i> Maria del Mar Cerrillo Gonzalez, Amir Taqieddin, et al.
+              <i class="fas fa-user"></i> Maria del Mar Cerrillo Gonzalez, Amir Taqieddin, Stephanie Sarrouf, Nima Sakhaee, Juan Manuel Paz-García, Akram N. Alshawabkeh, Muhammad Fahad Ehsan
             </p>
             <p class="pub-title">
               <strong>
@@ -1210,260 +1254,553 @@ body {
               <i class="fas fa-book"></i> Catalysts, 2025
             </p>
             <div class="pub-links">
-              <a href="https://www.mdpi.com/2073-4344/15/7/775" target="_blank" rel="noopener">
+              <a href="https://www.mdpi.com/2073-4344/15/2/189" target="_blank" rel="noopener">
                 <i class="fas fa-external-link-alt"></i> Paper
               </a>
             </div>
           </article>
-          
-          </div>
-        
-        <div style="text-align: center; margin-top: 3rem;" class="animate-on-scroll">
-            <a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank" class="btn btn-primary">
-                <i class="fas fa-graduation-cap"></i> View All on Google Scholar
-            </a>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              <i class="fas fa-user"></i> Stephanie Sarrouf, Amir Taqieddin, Muhammad Fahad Ehsan, Akram N. Alshawabkeh
+            </p>
+            <p class="pub-title">
+              <strong>
+                Engineering Electrode Polarity for Enhancing In Situ Generation of Hydroxyl Radicals Using Granular Activated Carbon
+              </strong>
+            </p>
+            <p class="pub-venue">
+              <i class="fas fa-book"></i> Catalysts, 2024
+            </p>
+            <div class="pub-links">
+              <a href="https://www.mdpi.com/2073-4344/14/1/52" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Paper
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              <i class="fas fa-user"></i> Amir Taqieddin, Stephanie Sarrouf, Muhammad Fahad Ehsan, Ken Buesseler, Akram N. Alshawabkeh
+            </p>
+            <p class="pub-title">
+              <strong>
+                Electrochemical Ocean Iron Fertilization and Alkalinity Enhancement Approach Toward CO₂ Sequestration
+              </strong>
+            </p>
+            <p class="pub-venue">
+              <i class="fas fa-book"></i> npj Ocean Sustainability, 2024
+            </p>
+            <div class="pub-links">
+              <a href="https://www.nature.com/articles/s44183-024-00064-8" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Paper
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              <i class="fas fa-user"></i> Amir Taqieddin, Stephanie Sarrouf, Muhammad Fahad Ehsan, Akram N. Alshawabkeh
+            </p>
+            <p class="pub-title">
+              <strong>
+                New Insights on Designing the Next-Generation Materials for Electrochemical Synthesis of Reactive Oxidative
+                Species Towards Efficient and Scalable Water Treatment: A Review and Perspectives
+              </strong>
+            </p>
+            <p class="pub-venue">
+              <i class="fas fa-book"></i> Journal of Environmental Chemical Engineering, 2023
+            </p>
+            <div class="pub-links">
+              <a href="https://pubmed.ncbi.nlm.nih.gov/38186676/" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Paper
+              </a>
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10769459/" target="_blank" rel="noopener">
+                <i class="fas fa-unlock"></i> Open Access
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              <i class="fas fa-user"></i> Michael T. Hwang, Mohammad Heiranian, Yerim Kim, Juyoung Leem, Amir Taqieddin, et al.
+            </p>
+            <p class="pub-title">
+              <strong>
+                Ultrasensitive Detection of Nucleic Acids Using Deformed Graphene Channel Field-Effect Biosensors
+              </strong>
+            </p>
+            <p class="pub-venue">
+              <i class="fas fa-book"></i> Nature Communications, 2020
+            </p>
+            <div class="pub-links">
+              <a href="https://www.nature.com/articles/s41467-020-15330-9" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Paper
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              <i class="fas fa-user"></i> Amir Taqieddin, Yuxuan Liu, Akram N. Alshawabkeh, Michael R. Allshouse
+            </p>
+            <p class="pub-title">
+              <strong>
+                Computational Modeling of Bubbles Growth Using the Coupled Level Set—Volume of Fluid Method
+              </strong>
+            </p>
+            <p class="pub-venue">
+              <i class="fas fa-book"></i> Fluids, 2020
+            </p>
+            <div class="pub-links">
+              <a href="https://www.mdpi.com/2311-5521/5/3/120" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Paper
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              <i class="fas fa-user"></i> Amir Taqieddin
+            </p>
+            <p class="pub-title">
+              <strong>
+                Review—Mathematical Formulations of Electrochemically Gas-Evolving Systems
+              </strong>
+            </p>
+            <p class="pub-venue">
+              <i class="fas fa-book"></i> Journal of The Electrochemical Society, 2018
+            </p>
+            <div class="pub-links">
+              <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6287757/" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Paper
+              </a>
+            </div>
+          </article>
+
+          <article class="pub-item">
+            <p class="pub-authors">
+              <i class="fas fa-user"></i> Amir Taqieddin, Roya Nazari, Ljiljana Rajic, Akram N. Alshawabkeh
+            </p>
+            <p class="pub-title">
+              <strong>
+                Review—Physicochemical Hydrodynamics of Gas Bubbles in Two Phase Electrochemical Systems
+              </strong>
+            </p>
+            <p class="pub-venue">
+              <i class="fas fa-book"></i> Journal of The Electrochemical Society, 2017
+            </p>
+            <div class="pub-links">
+              <a href="https://pubmed.ncbi.nlm.nih.gov/29731515/" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Paper
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;">
+          <a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank" class="btn btn-primary">
+            <i class="fas fa-graduation-cap"></i> View Full Publication List
+          </a>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="section">
-        <div class="container">
-            <div class="section-header animate-on-scroll">
-                <h2>Contact & Collaborate</h2>
-                <p>Let's connect to discuss research, collaboration, or opportunities.</p>
-            </div>
-            
-            <div class="contact-links animate-on-scroll" style="justify-content: center;">
-                <a href="mailto:amir.taqi@gmail.com" class="contact-link">
-                    <i class="fas fa-envelope"></i> amir.taqi@gmail.com
-                </a>
-                <a href="https://www.linkedin.com/in/amirtaqi" target="_blank" class="contact-link">
-                    <i class="fab fa-linkedin"></i> LinkedIn
-                </a>
-                <a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank" class="contact-link">
-                    <i class="fas fa-graduation-cap"></i> Google Scholar
-                </a>
-            </div>
+    <!-- MEDIA -->
+    <section id="media" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>Talks, Videos &amp; Media</h2>
+          <p>Public-facing talks, explainers, and coverage of my work in batteries, water, and climate technologies.</p>
         </div>
+
+        <p class="media-intro">
+          These resources highlight how multiscale computation and AI translate into real-world systems, from 
+          ocean-based CO₂ sequestration and electrochemical water treatment to nanofluidic sensors and battery 
+          technology.
+        </p>
+
+        <h3 style="color:#ffffff; margin-top:0;"><i class="fas fa-video"></i> Featured Videos &amp; Talks</h3>
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon"><i class="fab fa-youtube"></i></div>
+            <h3>Electrochemical Ocean Iron Fertilization &amp; Alkalinity Enhancement</h3>
+            <p>
+              Animated explainer of a self-operating electrochemical system that combines ocean iron fertilization,
+              alkalinity enhancement, and hydrogen production for durable CO₂ sequestration.
+            </p>
+            <div class="pub-links">
+              <a href="https://www.youtube.com/watch?v=dSqFyCxSsPc" target="_blank" rel="noopener">
+                <i class="fas fa-play-circle"></i> Watch on YouTube
+              </a>
+              <a href="https://www.nature.com/articles/s44183-024-00064-8" target="_blank" rel="noopener">
+                <i class="fas fa-book"></i> Related npj Ocean Sustainability Paper
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon"><i class="fab fa-youtube"></i></div>
+            <h3>Multiscale Simulations of Electronic and Fluidic Nanoscale Systems</h3>
+            <p>
+              Blue Waters Symposium talk on multiscale simulations for nanofluidics and electronic transport, using
+              petascale supercomputing to connect atomistic models and continuum descriptions.
+            </p>
+            <div class="pub-links">
+              <a href="https://www.youtube.com/watch?v=DhgKGpyGz4I" target="_blank" rel="noopener">
+                <i class="fas fa-play-circle"></i> Watch on YouTube
+              </a>
+              <a href="https://bluewaters.ncsa.illinois.edu/symposium-2019-schedule-descriptions.html" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Talk Abstract
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon"><i class="fas fa-chalkboard"></i></div>
+            <h3>AI in Battery Technology: From Laboratory Testing to Field Applications</h3>
+            <p>
+              Invited presentation in Cambridge EnerTech’s <em>AI for Energy Storage</em> program at the 
+              International Battery Seminar, highlighting physics-informed ML and digital twins for battery 
+              development and deployment.
+            </p>
+            <div class="pub-links">
+              <a href="https://www.internationalbatteryseminar.com/ai-for-energy-storage" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Session Page
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <h3 style="color:#ffffff; margin-top:3rem;"><i class="fas fa-newspaper"></i> Media Coverage</h3>
+        <div class="grid">
+          <article class="card">
+            <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+            <h3>“Engineer the Ocean” Climate Story (WBUR/NPR)</h3>
+            <p>
+              Featured in a WBUR climate segment on ocean iron enrichment, demonstrating a prototype floating
+              electrochemical device that delivers a steady dose of iron for marine carbon removal experiments.
+            </p>
+            <div class="pub-links">
+              <a href="https://www.wbur.org/news/2023/10/12/climate-change-oceans-iron-algae" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Read the Article
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon"><i class="fas fa-university"></i></div>
+            <h3>PROTECT Trainee Spotlight (Northeastern)</h3>
+            <p>
+              Dissertation and trainee spotlight on multiscale computational design of carbon and iron materials for
+              electrochemical water treatment and the transition to industry roles in battery R&amp;D.
+            </p>
+            <div class="pub-links">
+              <a href="https://protect.sites.northeastern.edu/2023/08/14/project-4-trainee-amir-taqieddin-completes-ph-d/" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Read the Story
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon"><i class="fas fa-dna"></i></div>
+            <h3>Crumpled Graphene Cancer DNA Detector</h3>
+            <p>
+              Coverage of the <em>Nature Communications</em> work on deformed graphene biosensors for 
+              ultrasensitive nucleic acid detection, including commentary on bandgap engineering and flexible electronics.
+            </p>
+            <div class="pub-links">
+              <a href="https://www.nanotechnologyworld.org/post/crumpled-graphene-makes-ultra-sensitive-cancer-dna-detector" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Read the Article
+              </a>
+              <a href="https://www.nature.com/articles/s41467-020-15330-9" target="_blank" rel="noopener">
+                <i class="fas fa-book"></i> Related Paper
+              </a>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-icon"><i class="fas fa-water"></i></div>
+            <h3>Carbon Dioxide Removal Community Overview</h3>
+            <p>
+              Highlighted in carbon-removal community summaries discussing electrochemical ocean iron fertilization
+              and alkalinity enhancement as a combined marine carbon dioxide removal pathway.
+            </p>
+            <div class="pub-links">
+              <a href="https://carbondioxide-removal.eu/en/2024/05/20/nature-taqieddin-et-al-2024-electrochemical-ocean-iron-fertilization-and-alkalinity-enhancement-approach-toward-co2-sequestration/" target="_blank" rel="noopener">
+                <i class="fas fa-external-link-alt"></i> Overview
+              </a>
+            </div>
+          </article>
+        </div>
+      </div>
     </section>
 
+    <!-- TEACHING -->
+    <section id="teaching" class="section section-alt">
+      <div class="container">
+        <div class="section-header">
+          <h2>Teaching &amp; Mentoring</h2>
+          <p>Committed to excellence in education and fostering the next generation of researchers</p>
+        </div>
+
+        <div class="grid">
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+            <h3>Teaching Experience</h3>
+            <ul>
+              <li>Mentored graduate and undergraduate students in computational methods and electrochemistry</li>
+              <li>Delivered research seminars on multiscale modeling, ML for materials, and ocean-based CDR</li>
+              <li>Supervised student projects in nanofluidics, battery modeling, and data-driven design</li>
+              <li>Guest lectures on transport phenomena and electrochemical engineering</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-book-open"></i></div>
+            <h3>Core Course Interests</h3>
+            <ul>
+              <li>Transport Phenomena &amp; Heat Transfer</li>
+              <li>Fluid Mechanics &amp; Thermodynamics</li>
+              <li>Numerical Methods &amp; Scientific Computing</li>
+              <li>Electrochemical Engineering</li>
+              <li>Energy Systems Design</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <div class="card-icon"><i class="fas fa-laptop-code"></i></div>
+            <h3>Advanced/Elective Courses</h3>
+            <ul>
+              <li>Materials Informatics &amp; ML for Design</li>
+              <li>Multiscale Modeling of Electrochemical Systems</li>
+              <li>Computational Transport in Energy Devices</li>
+              <li>Nanofluidics &amp; 2D Materials</li>
+              <li>Sustainable Water &amp; Climate Technologies</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="margin-top: 3rem; text-align: center;">
+          <a href="mailto:taqieddin.a@northeastern.edu?subject=Teaching%20Statement%20Request" class="btn btn-secondary">
+            <i class="fas fa-file-pdf"></i> Request Teaching Statement
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="section-header">
+          <h2>Contact &amp; Collaboration</h2>
+          <p>Open to research collaborations, speaking opportunities, and academic &amp; industry partnerships</p>
+        </div>
+
+        <div class="two-column">
+          <div>
+            <div class="icon-box">
+              <div class="icon-box-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="icon-box-content">
+                <h3>Email</h3>
+                <p>
+                  <a href="mailto:taqieddin.a@northeastern.edu" style="color: var(--orange);">
+                    taqieddin.a@northeastern.edu
+                  </a>
+                </p>
+              </div>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon-box-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="icon-box-content">
+                <h3>Location</h3>
+                <p>Boulder, Colorado, USA</p>
+              </div>
+            </div>
+
+            <div class="icon-box">
+              <div class="icon-box-icon">
+                <i class="fas fa-phone"></i>
+              </div>
+              <div class="icon-box-content">
+                <h3>Phone</h3>
+                <p>(857) 204-0204</p>
+              </div>
+            </div>
+
+            <h3 style="color: var(--orange); margin-top: 2rem; margin-bottom: 1rem;">
+              <i class="fas fa-link"></i> Professional Networks
+            </h3>
+            <div class="contact-links">
+              <a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank" class="contact-link">
+                <i class="fas fa-graduation-cap"></i> Google Scholar
+              </a>
+              <a href="https://orcid.org/0000-0002-5743-7110" target="_blank" class="contact-link">
+                <i class="fab fa-orcid"></i> ORCID
+              </a>
+              <a href="https://github.com/amirtaqiSP" target="_blank" class="contact-link">
+                <i class="fab fa-github"></i> GitHub
+              </a>
+              <a href="https://www.linkedin.com/in/amirtaqi" target="_blank" class="contact-link">
+                <i class="fab fa-linkedin"></i> LinkedIn
+              </a>
+              <a href="https://www.researchgate.net/profile/Amir-Taqieddin" target="_blank" class="contact-link">
+                <i class="fab fa-researchgate"></i> ResearchGate
+              </a>
+              <a href="https://www.youtube.com/@AmirTaqieddin" target="_blank" class="contact-link">
+                <i class="fab fa-youtube"></i> YouTube
+              </a>
+            </div>
+          </div>
+
+          <aside class="highlight-card">
+            <h3><i class="fas fa-handshake"></i> Collaboration Interests</h3>
+            <p style="color: #d1d5db; margin-bottom: 1.5rem;">
+              I welcome opportunities for research collaboration, invited talks, and partnerships that connect 
+              computation, experiments, and deployment in energy and environmental technologies.
+            </p>
+            <ul>
+              <li><i class="fas fa-users"></i> Interdisciplinary research on batteries, water, and climate tech</li>
+              <li><i class="fas fa-industry"></i> Industry partnerships on AI-enabled battery design &amp; digital twins</li>
+              <li><i class="fas fa-water"></i> Collaborations on electrochemical water treatment &amp; ocean-based CO₂ removal</li>
+              <li><i class="fas fa-university"></i> Academic &amp; national-lab collaborations</li>
+              <li><i class="fas fa-microphone"></i> Invited seminars, panels &amp; short courses</li>
+              <li><i class="fas fa-graduation-cap"></i> Student mentorship &amp; joint supervision</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem;"><i class="fas fa-file-alt"></i> Materials Available</h3>
+            <ul>
+              <li><a href="mailto:taqieddin.a@northeastern.edu?subject=CV%20Request"><i class="fas fa-file-pdf"></i> Curriculum Vitae</a></li>
+              <li><a href="mailto:taqieddin.a@northeastern.edu?subject=Research%20Statement%20Request"><i class="fas fa-flask"></i> Research Statement</a></li>
+              <li><a href="mailto:taqieddin.a@northeastern.edu?subject=Teaching%20Statement%20Request"><i class="fas fa-chalkboard-teacher"></i> Teaching Statement</a></li>
+            </ul>
+
+            <div style="margin-top: 1.8rem; text-align: center;">
+              <a href="mailto:taqieddin.a@northeastern.edu?subject=Collaboration%20Inquiry" class="btn btn-primary">
+                <i class="fas fa-handshake"></i> Start a Collaboration
+              </a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-content">
-      <div class="footer-section">
-        <h4>Amir Taqieddin</h4>
-        <p>
-            Materials Informatics Scientist with a passion for
-            developing computational solutions for energy, water, and climate challenges.
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>Amir Taqieddin</h4>
+          <p style="color: #d1d5db;">
+            Materials Informatics Scientist<br>
+            PhD, Mechanical &amp; Industrial Engineering<br>
+            Computational Science, ML &amp; Electrochemistry
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#publications">Publications</a></li>
+            <li><a href="#media">Media</a></li>
+            <li><a href="#teaching">Teaching</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Research Areas</h4>
+          <ul>
+            <li>Energy Storage &amp; Batteries</li>
+            <li>Materials Informatics</li>
+            <li>Water Treatment</li>
+            <li>Climate Technologies</li>
+            <li>Machine Learning</li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="mailto:taqieddin.a@northeastern.edu"><i class="fas fa-envelope"></i> Email</a></li>
+            <li><a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank"><i class="fas fa-graduation-cap"></i> Scholar</a></li>
+            <li><a href="https://github.com/amirtaqiSP" target="_blank"><i class="fab fa-github"></i> GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/amirtaqi" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Amir Taqieddin. All rights reserved.</p>
+        <p style="margin-top: 0.5rem; font-size: 0.85rem;">
+          Computational Materials Science · Batteries · Water &amp; Climate Technologies
         </p>
       </div>
-      <div class="footer-section">
-        <h4>Quick Links</h4>
-        <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#toolkit">Toolkit</a></li>
-          <li><a href="#research">Research</a></li>
-          <li><a href="#publications">Publications</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div class="footer-section">
-        <h4>Find Me Online</h4>
-        <ul>
-          <li><a href="https://www.linkedin.com/in/amirtaqi" target="_blank">LinkedIn</a></li>
-          <li><a href="https://scholar.google.com/citations?user=Vcp9B58AAAAJ" target="_blank">Google Scholar</a></li>
-          <li><a href="https://github.com/amirtaqiSP" target="_blank">GitHub</a></li>
-          <li><a href="https://orcid.org/0000-0002-5743-7110" target="_blank">ORCID</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      &copy; <span id="current-year"></span> Amir Taqieddin. All rights reserved.
     </div>
   </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    // Set current year
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-      // --- 1. Mobile Navigation Toggle ---
-      const navToggle = document.querySelector('.nav-toggle');
-      const navLinks = document.querySelector('.nav-links');
-      if (navToggle && navLinks) {
-        navToggle.addEventListener('click', () => {
-          navLinks.classList.toggle('nav-open');
-          const isExpanded = navLinks.classList.contains('nav-open');
-          navToggle.setAttribute('aria-expanded', isExpanded);
-        });
-      }
+    // Mobile nav toggle with improved UX
+    const navToggle = document.querySelector(".nav-toggle");
+    const navLinks = document.querySelector(".nav-links");
 
-      // --- 2. Header Shadow on Scroll ---
-      const header = document.querySelector('.site-header');
-      if (header) {
-        window.addEventListener('scroll', () => {
-          if (window.scrollY > 10) {
-            header.classList.add('header-scrolled');
-          } else {
-            header.classList.remove('header-scrolled');
-          }
-        });
-      }
-
-      // --- 3. NEW: Canvas Particle Constellation ---
-      const canvas = document.getElementById('particle-canvas');
-      const ctx = canvas.getContext('2d');
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      let particlesArray;
-      
-      // Particle class
-      class Particle {
-        constructor(x, y, directionX, directionY, size, color) {
-          this.x = x;
-          this.y = y;
-          this.directionX = directionX;
-          this.directionY = directionY;
-          this.size = size;
-          this.color = color;
-        }
-        
-        draw() {
-          ctx.beginPath();
-          ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-          ctx.fillStyle = 'rgba(237, 145, 34, 0.5)';
-          ctx.fill();
-        }
-        
-        update() {
-          if (this.x > canvas.width || this.x < 0) {
-            this.directionX = -this.directionX;
-          }
-          if (this.y > canvas.height || this.y < 0) {
-            this.directionY = -this.directionY;
-          }
-          this.x += this.directionX;
-          this.y += this.directionY;
-          this.draw();
-        }
-      }
-      
-      function initParticles() {
-        particlesArray = [];
-        let numberOfParticles = (canvas.height * canvas.width) / 9000;
-        for (let i = 0; i < numberOfParticles; i++) {
-          let size = (Math.random() * 2) + 1;
-          let x = (Math.random() * ((canvas.width - size * 2) - (size * 2)) + size * 2);
-          let y = (Math.random() * ((canvas.height - size * 2) - (size * 2)) + size * 2);
-          let directionX = (Math.random() * .4) - .2;
-          let directionY = (Math.random() * .4) - .2;
-          particlesArray.push(new Particle(x, y, directionX, directionY, size));
-        }
-      }
-      
-      function connectParticles() {
-        let opacityValue = 1;
-        for (let a = 0; a < particlesArray.length; a++) {
-          for (let b = a; b < particlesArray.length; b++) {
-            let distance = ((particlesArray[a].x - particlesArray[b].x) * (particlesArray[a].x - particlesArray[b].x))
-                         + ((particlesArray[a].y - particlesArray[b].y) * (particlesArray[a].y - particlesArray[b].y));
-            if (distance < (canvas.width / 7) * (canvas.height / 7)) {
-              opacityValue = 1 - (distance / 20000);
-              ctx.strokeStyle = `rgba(237, 145, 34, ${opacityValue})`;
-              ctx.lineWidth = 0.5;
-              ctx.beginPath();
-              ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-              ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-              ctx.stroke();
-            }
-          }
-        }
-      }
-
-      function animateParticles() {
-        requestAnimationFrame(animateParticles);
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-        for (let i = 0; i < particlesArray.length; i++) {
-          particlesArray[i].update();
-        }
-        connectParticles();
-      }
-
-      window.addEventListener('resize', () => {
-        canvas.width = window.innerWidth;
-        canvas.height = window.innerHeight;
-        initParticles();
-      });
-      
-      initParticles();
-      animateParticles();
-
-
-      // --- 4. NEW: Hero Subtitle Typing Effect ---
-      function setupTypingEffect() {
-        const target = document.getElementById('type-subtitle');
-        const phrases = [
-          "Physics-Based Modeling",
-          "Machine Learning",
-          "Materials Informatics"
-        ];
-        let phraseIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-          const currentPhrase = phrases[phraseIndex];
-          
-          if (isDeleting) {
-            // Deleting
-            target.textContent = currentPhrase.substring(0, charIndex - 1);
-            charIndex--;
-            if (charIndex === 0) {
-              isDeleting = false;
-              phraseIndex = (phraseIndex + 1) % phrases.length;
-            }
-          } else {
-            // Typing
-            target.textContent = currentPhrase.substring(0, charIndex + 1);
-            charIndex++;
-            if (charIndex === currentPhrase.length) {
-              // Pause at end of word
-              setTimeout(() => { isDeleting = true; }, 2000);
-            }
-          }
-          
-          const typeSpeed = isDeleting ? 75 : 150;
-          setTimeout(type, charIndex === currentPhrase.length ? 2000 : typeSpeed);
-        }
-        
-        if (target) {
-          setTimeout(type, 500); // Start after a short delay
-        }
-      }
-      setupTypingEffect();
-
-      // --- 5. Scroll-in Animations (Intersection Observer) ---
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-            observer.unobserve(entry.target); // Animate only once
-          }
-        });
-      }, { threshold: 0.1 }); // Trigger when 10% of the element is visible
-
-      document.querySelectorAll('.animate-on-scroll').forEach(el => {
-        observer.observe(el);
+    if (navToggle && navLinks) {
+      navToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("nav-open");
       });
 
-      // --- 6. Update Footer Year ---
-      const yearSpan = document.getElementById('current-year');
-      if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-      }
+      navLinks.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+          navLinks.classList.remove("nav-open");
+        });
+      });
 
+      document.addEventListener("click", (e) => {
+        if (!navToggle.contains(e.target) && !navLinks.contains(e.target)) {
+          navLinks.classList.remove("nav-open");
+        }
+      });
+    }
+
+    // Create animated particles
+    const particlesContainer = document.getElementById("particles");
+    for (let i = 0; i < 30; i++) {
+      const particle = document.createElement("div");
+      particle.className = "particle";
+      particle.style.left = Math.random() * 100 + "%";
+      particle.style.top = Math.random() * 100 + "%";
+      particle.style.animationDelay = Math.random() * 20 + "s";
+      particle.style.animationDuration = (15 + Math.random() * 10) + "s";
+      particlesContainer.appendChild(particle);
+    }
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px"
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("fade-in");
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll(".card, .icon-box, .pub-item, .stat-item, .flow-item").forEach(el => {
+      observer.observe(el);
     });
   </script>
-
 </body>
 </html>
