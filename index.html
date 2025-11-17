@@ -27,7 +27,7 @@ body {
   background-attachment: fixed;
 }
 
-/* Color palette from research statement */
+/* Color palette */
 :root {
   --navy-deep: #062A77;
   --navy-soft: #343F66;
@@ -646,21 +646,26 @@ body {
   text-decoration: underline;
 }
 
-/* Stats section */
+/* Stats section - all in one row (scrollable on small screens) */
 .stats {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 2rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  gap: 1.5rem;
   margin: 3rem 0;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
 }
 
 .stat-item {
   text-align: center;
-  padding: 2rem;
+  padding: 2rem 1.5rem;
   background: var(--card-bg);
   border-radius: 16px;
   border: 2px solid rgba(237, 145, 34, 0.2);
   transition: all 0.3s ease;
+  flex: 0 0 auto;
+  min-width: 180px;
 }
 
 .stat-item:hover {
@@ -1093,8 +1098,14 @@ body {
             <h3><i class="fas fa-star"></i> Key Highlights</h3>
             <ul>
               <li><strong>1,300+</strong> citations &amp; <strong>20</strong> peer-reviewed publications</li>
-              <li>Lead author in <em>npj Ocean Sustainability</em>, <em>ACS ES&amp;T Water</em>, and <em>Catalysts</em></li>
-              <li>Co-author on <em>Nature Communications</em>, <em>ACS Nano</em>, and MDPI <em>Fluids</em></li>
+              <li>
+                Lead author in <em>npj Ocean Sustainability</em>, <em>ACS ES&amp;T Water</em>,
+                <em>J. Phys. Chem. C</em> (JPCC), and <em>Journal of The Electrochemical Society</em>
+              </li>
+              <li>
+                Co-author on <em>Nature Communications</em>, <em>ACS Nano</em>, and
+                <em>Nature Electronics</em>
+              </li>
               <li>Industry experience at Technip, Nissan Advanced Technology Center, and Solid Power</li>
               <li>Inventor on <strong>3</strong> patents / patent applications and <strong>6</strong> additional filings in progress</li>
             </ul>
@@ -1548,46 +1559,58 @@ body {
       <div class="container">
         <div class="section-header">
           <h2>Patents &amp; Inventions</h2>
-          <p>Intellectual property at the intersection of electrochemistry, thermal-fluid science, and energy systems</p>
+          <p>Intellectual property spanning electrochemical water treatment, ocean-based CO₂ removal, and advanced energy &amp; thermal-fluid systems.</p>
         </div>
+
+        <p style="max-width: 900px; margin: 0 auto 2.5rem; color: #d1d5db; text-align: center;">
+          I am an inventor or co-inventor on <strong>3</strong> patents / patent applications that are publicly
+          visible and <strong>6</strong> additional filings in progress. Because several of these are still
+          under review or confidential, the descriptions below focus on the <strong>technical themes</strong>
+          rather than formal legal titles.
+        </p>
 
         <div class="grid">
           <article class="card">
             <div class="card-icon"><i class="fas fa-water"></i></div>
-            <h3>Offshore Mobile Platform for Electrochemical Ocean Iron Fertilization &amp; Hydrogen Gas Generation</h3>
+            <h3>Electrochemical Water Treatment Platforms</h3>
             <p>
-              Floating electrochemical system that releases iron and alkalinity while producing hydrogen, enabling
-              controlled ocean iron fertilization and durable CO₂ sequestration with integrated energy recovery.
+              Patent work on <strong>flow-through electrochemical reactors</strong> and
+              <strong>granular activated carbon electrodes</strong> that generate reactive oxygen species in situ
+              for the degradation of organic contaminants and emerging pollutants. These inventions tie directly
+              to my multiscale modeling and experimental work on ROS-generating electrodes and reactor design.
             </p>
             <p class="collab-note">
-              Co-invented with collaborators in oceanography and electrochemistry; directly connected to my work on
-              electrochemical ocean carbon removal and multiscale reactor modeling.
+              Themes: electro-Fenton(-like) processes, porous electrode engineering, high-throughput flow reactors,
+              and scalable architectures for decentralized water treatment.
             </p>
           </article>
 
           <article class="card">
-            <div class="card-icon"><i class="fas fa-vial"></i></div>
-            <h3>Enhancing H₂O₂ Generation Using Activated Carbon Electrocatalyst Cathodes</h3>
+            <div class="card-icon"><i class="fas fa-globe-americas"></i></div>
+            <h3>Ocean-Based CO₂ Removal &amp; Marine Electrochemistry</h3>
             <p>
-              Flow-through reactor and cathode architectures that maximize hydrogen peroxide generation and reactive
-              oxygen species production for scalable electrochemical water treatment.
+              Inventions that integrate <strong>electrochemical ocean iron fertilization</strong>,
+              <strong>alkalinity enhancement</strong>, and in some cases <strong>hydrogen co-production</strong>,
+              enabling controlled nutrient release and quantifiable, durable marine CO₂ sequestration.
+              These concepts are closely linked to my work on electrochemical ocean carbon removal reactors.
             </p>
             <p class="collab-note">
-              Bridges microstructure-resolved transport, multiphase electrochemistry, and reactor-scale optimization
-              for decentralized water treatment.
+              Themes: marine carbon dioxide removal (mCDR), electrochemical iron cycling, alkalinity management,
+              and coupled MRV (monitoring, reporting, verification) frameworks.
             </p>
           </article>
 
           <article class="card">
             <div class="card-icon"><i class="fas fa-fire-alt"></i></div>
-            <h3>Heat-Generating Materials &amp; Thermal Management Systems</h3>
+            <h3>Advanced Energy &amp; Thermal-Fluid Systems</h3>
             <p>
-              Metal–hydrogen based heat-generating materials and systems for efficient, controllable heat delivery,
-              with applications in advanced energy, automotive, and thermal management technologies.
+              Patent activity in <strong>energy and thermal management</strong>, including hydrogen- and metal-based
+              heat generation concepts and system-level designs that connect thermal-fluid science to batteries,
+              electrochemical devices, and broader energy systems.
             </p>
             <p class="collab-note">
-              Connects my background in thermal-fluid sciences with energy systems and materials design, informing
-              battery and reactor thermal management strategies.
+              Themes: heat-generating materials and systems, thermal management strategies for electrochemical
+              devices and reactors, and integration with battery and grid-scale applications.
             </p>
           </article>
         </div>
@@ -1929,7 +1952,7 @@ body {
     // Set current year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // Mobile nav toggle with improved UX
+    // Mobile nav toggle
     const navToggle = document.querySelector(".nav-toggle");
     const navLinks = document.querySelector(".nav-links");
 
@@ -2005,7 +2028,7 @@ body {
           ctx.fill();
         }
 
-        // Draw interaction links (graph / ML-like connections)
+        // Draw interaction links
         for (let i = 0; i < particles.length; i++) {
           for (let j = i + 1; j < particles.length; j++) {
             const p1 = particles[i];
