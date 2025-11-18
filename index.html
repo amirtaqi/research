@@ -3289,29 +3289,34 @@ document.querySelectorAll(".card, .icon-box, .pub-item, .stat-item, .flow-item")
         teachingBtn.href = "mailto:" + user + "@" + domain + "?subject=" + subject;
       }
     })();
-// Parallax effect for hero (REPLACE EXISTING PARALLAX CODE)
+// Parallax effect for HERO CONTENT only (Prevents overlapping the About section)
 (function() {
-  const hero = document.querySelector('.hero');
-  if (!hero) return;
+  const heroContent = document.querySelector('.hero-content');
+  const heroCanvas = document.querySelector('#md-canvas'); // Target the background canvas
+  
+  if (!heroContent) return;
 
   let ticking = false;
   
   function updateParallax() {
     const scrolled = window.pageYOffset;
-    const heroHeight = hero.offsetHeight;
-    
-    // Only apply parallax while hero is visible
-    if (scrolled < heroHeight) {
-      const rate = scrolled * 0.3; // Reduced from 0.5 for less dramatic effect
-      hero.style.transform = `translate3d(0, ${rate}px, 0)`;
-      hero.style.opacity = 1 - (scrolled / heroHeight) * 0.3; // Slight fade
-    }
+    // Rate 0.4 for content (moves slower than scroll)
+    // Rate 0.2 for background (moves even slower)
+    const rateContent = scrolled * 0.4;
+    const rateBg = scrolled * 0.2;
+
+    // Apply to content, NOT the container
+    heroContent.style.transform = `translate3d(0, ${rateContent}px, 0)`;
+    if(heroCanvas) heroCanvas.style.transform = `translate3d(0, ${rateBg}px, 0)`;
+
+    // Opacity fade out
+    heroContent.style.opacity = 1 - (scrolled / 500); 
     
     ticking = false;
   }
 
   window.addEventListener('scroll', () => {
-    if (!ticking) {
+    if (!ticking && window.innerWidth > 768) { // Disable on mobile for performance
       window.requestAnimationFrame(updateParallax);
       ticking = true;
     }
