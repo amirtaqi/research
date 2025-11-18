@@ -3158,15 +3158,32 @@ document.querySelectorAll(".card, .icon-box, .pub-item, .stat-item, .flow-item")
         teachingBtn.href = "mailto:" + user + "@" + domain + "?subject=" + subject;
       }
     })();
-  // Parallax effect for hero
+// Parallax effect for hero (REPLACE EXISTING PARALLAX CODE)
 (function() {
   const hero = document.querySelector('.hero');
   if (!hero) return;
 
-  window.addEventListener('scroll', () => {
+  let ticking = false;
+  
+  function updateParallax() {
     const scrolled = window.pageYOffset;
-    const rate = scrolled * 0.5;
-    hero.style.transform = `translate3d(0, ${rate}px, 0)`;
+    const heroHeight = hero.offsetHeight;
+    
+    // Only apply parallax while hero is visible
+    if (scrolled < heroHeight) {
+      const rate = scrolled * 0.3; // Reduced from 0.5 for less dramatic effect
+      hero.style.transform = `translate3d(0, ${rate}px, 0)`;
+      hero.style.opacity = 1 - (scrolled / heroHeight) * 0.3; // Slight fade
+    }
+    
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
   });
 })();
   </script>
