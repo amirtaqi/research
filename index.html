@@ -2934,23 +2934,26 @@ body {
     })();
 
     // Scroll animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: "0px 0px -50px 0px"
-    };
+// Enhanced scroll animations
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: "0px 0px -50px 0px"
+};
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("fade-in");
-        }
-      });
-    }, observerOptions);
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, index) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => {
+        entry.target.classList.add("fade-in");
+        entry.target.style.animationDelay = `${index * 0.1}s`;
+      }, index * 50);
+    }
+  });
+}, observerOptions);
 
-    document.querySelectorAll(".card, .icon-box, .pub-item, .stat-item, .flow-item").forEach(el => {
-      observer.observe(el);
-    });
-
+document.querySelectorAll(".card, .icon-box, .pub-item, .stat-item, .flow-item").forEach(el => {
+  observer.observe(el);
+});
     // Build email links in JS to avoid exposing a plain address in the HTML
     (function () {
       const user = "taqieddin.a";
@@ -2977,6 +2980,17 @@ body {
         teachingBtn.href = "mailto:" + user + "@" + domain + "?subject=" + subject;
       }
     })();
+  // Parallax effect for hero
+(function() {
+  const hero = document.querySelector('.hero');
+  if (!hero) return;
+
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const rate = scrolled * 0.5;
+    hero.style.transform = `translate3d(0, ${rate}px, 0)`;
+  });
+})();
   </script>
 
   
